@@ -20,14 +20,36 @@ namespace ReloadOperator
             {
                 return c1.Value > c2.Value ? c1 : c2;
             }
+            
             public static Counter operator <(Counter c1, Counter c2)
             {
-                return c1.Value < c2.Value ? c2 : c1;
+                if (c1.Value < c2.Value)
+                {
+                    return c2;
+                }
+                else
+                {
+                    return c1;
+                }
+                //return c1.Value < c2.Value ? c2 : c1;
             }
+
             public static Counter operator +(Counter c1, Counter c2)
             {
                 return new Counter { Value = c1.Value + c2.Value };
             }
+
+
+
+
+
+
+
+
+
+
+
+
         }
         public Form1()
         {
@@ -41,7 +63,8 @@ namespace ReloadOperator
 
 
             label1.Text = (sosiska1 > sosiska2).Value.ToString() ;
-
+            Counter bolshaya_sosiska = sosiska1 > sosiska2;
+            MessageBox.Show(bolshaya_sosiska.Value.ToString());
 
 
         }
